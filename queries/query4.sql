@@ -1,5 +1,4 @@
--- Contracts (all attributes) under which both military equipment and 
--- weapons and ammunition have been supplied.
+-- Contracts (all attributes) under which military equipment, weapons and ammunition have been supplied.
 ------------------------------------------------------------------------------------------------
 select distinct smlouva.* from smlouva 
     join dodavka using(id_smlouva)

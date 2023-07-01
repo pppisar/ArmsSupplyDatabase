@@ -1,27 +1,27 @@
 ## Disclamer
-This repository contains the code for the semester project of the subject [Database Systems](https://courses.fit.cvut.cz/BI-DBS/) studied during the second semester at the Czech Technical University in Prague.
+This repository contains the semester project of the subject [Database Systems](https://courses.fit.cvut.cz/BI-DBS/) studied during the second semester at the Czech Technical University in Prague.
 
-The topic was chosen due to its relevance and the availability of a large amount of information for further analysis, which made the development process not only useful in terms of acquiring new skills but also interesting.
+The topic was chosen due to its relevance and the availability of a large amount of information for further analysis, which made the development process not only useful in terms of acquiring new skills, but also interesting.
 
 # Database of arms supplies to Ukraine (Databáze dodávek zbraní Ukrajině)
 
 ## Database description (English)
 
-Today, many countries around the world are helping Ukraine win the war. In addition to financial and humanitarian aid, dozens of countries are providing Ukraine with weapons, military equipment, and ammunition.
+Today, many countries around the world are helping Ukraine win the war. In addition to financial and humanitarian aid, dozens of countries provide Ukraine with weapons, military equipment, and ammunition.
 
-To ensure effective monitoring, the security of neighboring countries, and reduce the risk of corruption, which Ukraine has significant problems with, it is necessary to create a convenient system for managing and controlling this information.
+To ensure effective monitoring, the security of neighboring countries, and reduce the risk of corruption, which is a major problem in Ukraine, it is necessary to create a convenient system for managing and controlling this information.
 
-One of the objectives of the database is to ensure monitoring of the quantity of military equipment, weapons, and ammunition already transferred for rapid replenishment if needed. The overall account of weapons in the database will help increase the effectiveness of conducting combat operations and ensure reliable storage of weapons.
+One of the tasks of the database is to ensure monitoring of the amount of military equipment, weapons, and ammunition already transferred for rapid replenishment if necessary. The general accounting of weapons in the database will help to increase the efficiency of conducting combat operations and ensure reliable storage of weapons.
 
-Any supplies(**dodávky**) start with the signing of a contract(**smlouvy**). The database stores information about the supplier(**dodavateli**), which can be a company(**firma**) or a country(**země**) with which the contract was concluded, whether it is military assistance, when it was concluded, and for what amount (not a mandatory attribute).
+Any supplies(**dodávky**) begin with the signing of a contract(**smlouvy**). The database stores information about the supplier(**dodavateli**), which can be a company(**firma**) or a country(**země**) with which the contract was concluded, whether it is military assistance, when it was signed, and for what amount (not a mandatory attribute).
 
-Each contract(**smlouva**) may include the supply of several types of weapons. The database will store information about each supply made under a specific contract, including the country of manufacture, the number of units supplied, and the specific weapons that will or have been transferred. It should be noted that within one supply, only one type of weapon can be transferred: Military Equipment(**Vojenská technika**), Weapon(**Zbraň**), or Ammunition(**Střelivo**). Each of these entities contains specific technical information about the weapon model being transferred within the supply.
+Each contract(**smlouva**) may include the supply of several types of weapons. The database will store information about each supply made under a specific contract, including the country of manufacture, the number of units supplied, and the specific arms that will or have been transferred. It should be noted that within one supply, only one type of armament can be transferred: Military Equipment(**Vojenská technika**), Weapon(**Zbraň**), or Ammunition(**Střelivo**). Each of these entities contains specific technical information about the weapon model being transferred within the supply.
 
-The database also includes information about parts(**dílech**) for each piece of equipment, whether they are original or interchangeable. This allows for easy and accurate determination of which parts can be used for repairs.
+The database also includes information about parts(**dílech**) for each piece of equipment, whether they are original or interchangeable. This makes it easy and accurate to determine which parts can be used for repairs.
 
 Information about contract prices and supply volumes will allow, after the end of the war, if desired by the countries or supplier companies, to track all supplied armaments and request their return or financial compensation.
 
-Finally, the creation of such a database allows for increased transparency and openness in management, reducing the risk of corruption and misuse of actions. It provides access to important information for all stakeholders, including government structures, military command centers, and research centers.
+Finally, the creation of such a database allows for increased transparency and openness in management, reducing the risk of corruption and misuse. It provides access to important information for all stakeholders, including government structures, military command centers, and research centers.
 
 ## Relational diagram
 
@@ -31,9 +31,9 @@ Finally, the creation of such a database allows for increased transparency and o
 
 The database was developed for PostgreSQL. 
 
-The [Create script](create.sql) completely clears previously created tables (if any) and creates the necessary tables with corresponding attributes as specified in the relational schema.
+The [Create script](create.sql) completely clears previously created tables (if any) and creates the necessary tables with corresponding attributes as specified in the relational diagram.
 
-The [Insert script](insert.sql) fill all tables with data based on which further testing will be conducted. Most of the data is real and not generated, which makes the testing process, including informative.
+The [Insert script](insert.sql) fills all tables with data that will be used for further testing. Most of the data is real and not generated, which makes the testing process informative.
 
 ## Testing the database
 

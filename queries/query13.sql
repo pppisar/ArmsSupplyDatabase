@@ -1,6 +1,6 @@
--- Find the latest signed contract that was signed as aid and under which a weapon was delivered, and repeat this weapon delivery. 
--- If there were multiple weapon deliveries under this contract, repeat the delivery with the newest weapon (highest production date). 
--- In duplication, the production date must be current.
+-- Find the latest signed contract that was signed as aid and under which a weapon was supplied, and repeat this weapon supply. 
+-- If there were multiple weapon supplies under this contract, repeat the supply with the newest weapon (highest production date). 
+-- When duplicating, the date of manufacture must be current.
 --------------------------------------------------------------------------
 
 begin;
@@ -19,4 +19,5 @@ limit 1;
 select * from dodavka order by id_dodavka desc;
 
 rollback;
+
 --------------------------------------------------------------------------

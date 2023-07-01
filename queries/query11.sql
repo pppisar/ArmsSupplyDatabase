@@ -1,7 +1,8 @@
--- List how much military equipment of each type was delivered in 2022 (date_signed) as aid. 
--- We are not interested in types of military equipment for which less than 200 units were delivered. 
--- Sort the result in ascending order by the type name.
+-- Display how much military equipment of each type was supplied in 2022 (datum_podpisu) as aid. 
+-- We are not interested in types of military equipment for which less than 200 units were supplied. 
+-- Sort the result in ascending order by the type name
 --------------------------------------------------------------------------
+
 select nazev_typ, sum(mnozstvi) as celkem_techniky_tohoto_typu
 from smlouva
 join dodavka using(id_smlouva)
@@ -12,4 +13,5 @@ and pomoc = 'true'
 group by nazev_typ
 having sum(mnozstvi) >= 200
 order by nazev_typ asc;
+
 --------------------------------------------------------------------------

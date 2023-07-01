@@ -5,6 +5,7 @@
 -- \
 -- {Types of weapons supplied by the supplier with the number 203}
 -- = empty set
+
 (select id_typ_zbran from typ_zbran)
 except
 (select id_typ_zbran from smlouva s
@@ -19,4 +20,5 @@ where id_dodavatel = (
         where d.id_smlouva = s.id_smlouva
     ) = (select count(*) from typ_zbran)
 ));
--------------------------------------
+
+--------------------------------------------------------------------------

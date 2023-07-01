@@ -1,5 +1,5 @@
--- Determine the number of deliveries made by each company. 
--- The resulting table should not include the names of companies that have not made any deliveries.
+-- How many supplies each company has made. 
+-- The resulting table should not include the names of companies that have not made any supplies.
 --------------------------------------------------------------------------
 
 select nazev_firma, count(*) as kolik_bylo_dodano

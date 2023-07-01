@@ -18,7 +18,7 @@ where id_smlouva not in (
         ) as VseMozneKombinace
         except
         (select distinct id_smlouva, id_typ_zbran from dodavka
-        natural join zbran) -- smlouvyObsahujiciZbran
+        natural join zbran)
     ) as coNedodalyVse
 );
     

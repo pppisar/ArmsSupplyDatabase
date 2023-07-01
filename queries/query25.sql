@@ -1,4 +1,4 @@
--- Contracts under which only ammunition and weapons were delivered.
+-- Contracts under which only ammunition and weapons were supplied.
 --------------------------------------------------------------------------
 
 ((select smlouva.* from smlouva 

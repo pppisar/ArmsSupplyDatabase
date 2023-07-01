@@ -1,5 +1,5 @@
--- Display all deliveries made by a single country as the supplier (supplier_country_id) 
--- and manufactured by another country (production_country_id).
+-- Display all supplies that have been supplied (id_zeme_dodavatel) 
+-- and manufactured (id_zeme_vyroby) by one country.
 --------------------------------------------------------------------------
 
 select dodavka.* from dodavka

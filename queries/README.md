@@ -35,7 +35,7 @@ except
 ```
 
 ## Query №4
-> Contracts (all attributes) under which both military equipment and weapons and ammunition have been supplied.
+> Contracts (all attributes) under which military equipment, weapons and ammunition have been supplied.
 ```sql
 select distinct smlouva.* from smlouva 
     join dodavka using(id_smlouva)
@@ -68,7 +68,7 @@ where id_smlouva not in (
         ) as VseMozneKombinace
         except
         (select distinct id_smlouva, id_typ_zbran from dodavka
-        natural join zbran) -- smlouvyObsahujiciZbran
+        natural join zbran)
     ) as coNedodalyVse
 );
 ```
@@ -115,9 +115,9 @@ where id_dodavatel = (
 ```
 
 ## Query №7
-> Retrieve from the database all military equipment with complete characteristics.
-> (For all items, include the type of fuel used by the equipment. For naval equipment, 
-> display the diving depth, and for aviation equipment, display the flight altitude)
+> Display from the database all military equipment with complete characteristics. 
+> (For all items display the type of fuel used by the equipment. For naval equipment 
+> display the diving depth. For aviation equipment display the flight altitude)
 ```sql
 select * from vojenska_technika vt
 left join lodni using(id_technika)
@@ -145,7 +145,7 @@ from typ_strelivo ts;
 ```
 
 ## Query №10
-> Calculate the quantity delivered for each weapon type across all completed deliveries. 
+> For each type of weapon, calculate the quantity that has been supplied for all supplies. 
 > The result should be sorted in descending order based on the total quantity.
 ```sql
 select nazev_typ, sum(mnozstvi) as celkem_zbrani_tohoto_typu
@@ -157,8 +157,8 @@ order by celkem_zbrani_tohoto_typu desc;
 ```
 
 ## Query №11
-> List how much military equipment of each type was delivered in 2022 (date_signed) as aid. 
-> We are not interested in types of military equipment for which less than 200 units were delivered. 
+> Display how much military equipment of each type was supplied in 2022 (datum_podpisu) as aid. 
+> We are not interested in types of military equipment for which less than 200 units were supplied. 
 > Sort the result in ascending order by the type name.
 ```sql
 select nazev_typ, sum(mnozstvi) as celkem_techniky_tohoto_typu
@@ -187,9 +187,9 @@ where nazev_typ = 'Armored';
 ```
 
 ## Query №13
-> Find the latest signed contract that was signed as aid and under which a weapon was delivered, and repeat this weapon delivery. 
-> If there were multiple weapon deliveries under this contract, repeat the delivery with the newest weapon (highest production date). 
-> In duplication, the production date must be current.
+> Find the latest signed contract that was signed as aid and under which a weapon was supplied, and repeat this weapon supply. 
+> If there were multiple weapon supplies under this contract, repeat the supply with the newest weapon (highest production date). 
+> When duplicating, the date of manufacture must be current.
 ```sql
 begin;
 
@@ -210,7 +210,7 @@ rollback;
 ```
 
 ## Query №14
-> An audit revealed that all ammunition deliveries under contracts signed in 2023 were subject to incorrect quantity control. 
+> An audit revealed that all ammunition supplies under contracts signed in 2023 were subject to improper quantity control. 
 > For each such delivery, the quantity should have been increased by 25%.
 ```sql
 begin;
@@ -260,7 +260,7 @@ rollback;
 ```
 
 ## Query №16
-> Display military equipment (all attributes) that has not been delivered.
+> Display military equipment (all attributes) that has not been supplied.
 ```sql
 select * from vojenska_technika
     
@@ -271,7 +271,7 @@ join dodavka using(id_technika);
 ```
 
 ## Query №17
-> Display deliveries (all attributes) under contracts signed with countries as aid, where the price exceeds 500 million dollars.
+> Display supplies (all attributes) under contracts signed with countries as aid, where the price exceeds 500 million dollars.
 ```sql
 select d.* from dodavka d
 natural join smlouva s
@@ -300,7 +300,7 @@ where datum_vyroby > datum_podpisu;
 ```
 
 ## Query №20
-> Display the name of the most frequently used fuel along with the number of military equipment units that use it.
+> Display the name of the most frequently used fuel along with the number of military equipments that use it.
 ```sql
 select nazev_palivo as nejpouzivanejsi_palivo, count(*) as kolik_vhodne_techniky
 from palivo
@@ -311,8 +311,8 @@ limit 1;
 ```
 
 ## Query №21
-> Display all deliveries made by a single country as the supplier (supplier_country_id) 
-> and manufactured by another country (production_country_id).
+> Display all supplies that have been supplied (id_zeme_dodavatel) 
+> and manufactured (id_zeme_vyroby) by one country.
 ```sql
 select dodavka.* from dodavka
 join smlouva using(id_smlouva)
@@ -345,8 +345,8 @@ where exists (
 ```
 
 ## Query №24
-> Determine the number of deliveries made by each company. 
-> The resulting table should not include the names of companies that have not made any deliveries.
+> How many supplies each company has made. 
+> The resulting table should not include the names of companies that have not made any supplies.
 ```sql
 select nazev_firma, count(*) as kolik_bylo_dodano
 from dodavka
@@ -359,7 +359,7 @@ order by kolik_bylo_dodano desc;
 ```
 
 ## Query №25
-> Contracts under which only ammunition and weapons were delivered.
+> Contracts under which only ammunition and weapons were supplied.
 ```sql
 ((select smlouva.* from smlouva 
 join dodavka using(id_smlouva)
