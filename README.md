@@ -23,9 +23,13 @@ Information about contract prices and supply volumes will allow, after the end o
 
 Finally, the creation of such a database allows for increased transparency and openness in management, reducing the risk of corruption and misuse. It provides access to important information for all stakeholders, including government structures, military command centers, and research centers.
 
+## Conceptual diagram
+
+![](/images/conceptual_diagram.jpg)
+
 ## Relational diagram
 
-![](images/relational_schema.jpg)
+![](/images/relational_diagram.jpg)
 
 ## Deploying and filling the database
 
